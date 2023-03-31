@@ -13,15 +13,18 @@ export function Home() {
     });
   }, []);
   return (
-    <View className="flex w-full h-full bg-gray-200">
+    <View className="flex w-full px-4 h-full bg-gray-200">
       <Header />
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        className="flex w-full h-full"
-      >
-        <View className="flex w-full items-center justify-center pt-4">
-          <CategoryCard />
-        </View>
+      <ScrollView showsVerticalScrollIndicator={false} className="w-full mt-2">
+        <CategoryCard />
+        <CategoryCard />
+        <CategoryCard />
+        <CategoryCard />
+        <CategoryCard />
+        <CategoryCard />
+        <CategoryCard />
+        <CategoryCard />
+        <CategoryCard />
       </ScrollView>
     </View>
   );
