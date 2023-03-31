@@ -18,7 +18,7 @@ export function Home() {
         showsVerticalScrollIndicator={false}
         className="flex w-full h-full"
       >
-        <View className="flex w-full items-center justify-center">
+        <View className="flex w-full items-center justify-center pt-4">
           <List />
         </View>
       </ScrollView>
