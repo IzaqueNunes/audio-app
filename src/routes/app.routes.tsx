@@ -9,6 +9,7 @@ export function AppRoutes() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Splash" component={Splash} />
+
       <Stack.Screen
         name="Home"
         component={Home}

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 
 import { ScrollView, Text, View, BackHandler } from "react-native";
 import { Header } from "../components/Header";
+import List from "../components/List";
 
 export function Home() {
   useEffect(() => {
@@ -17,10 +18,8 @@ export function Home() {
         showsVerticalScrollIndicator={false}
         className="flex w-full h-full"
       >
-        <View className="flex w-full items-center justify-center bg-yellow-600">
-          <Text className="text-red-800 font-medium bg-green-700">
-            OLA MUNDO
-          </Text>
+        <View className="flex w-full items-center justify-center">
+          <List />
         </View>
       </ScrollView>
     </View>
