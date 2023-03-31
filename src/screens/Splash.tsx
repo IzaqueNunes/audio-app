@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import Lottie from "lottie-react-native";
 
 import { useNavigation } from "@react-navigation/native";

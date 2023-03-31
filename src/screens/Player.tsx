@@ -38,6 +38,17 @@ export default function Player() {
     }
   }
 
+  const handleForward = async () => {
+    try {
+      if (sound) {
+        const position = await sound.getPositionAsync();
+        await sound.setPositionAsync(position + 15 * 1000);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     return sound
       ? () => {
@@ -48,7 +59,7 @@ export default function Player() {
   }, [sound]);
 
   return (
-    <View className="">
+    <View className="w-full">
       <View>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
@@ -77,6 +88,9 @@ export default function Player() {
               )}
             </TouchableOpacity>
           </View>
+          {/* <TouchableOpacity onPress={() => handleForward()}>
+            <Text>AVANÇAR</Text>
+          </TouchableOpacity> */}
         </View>
       </View>
     </View>

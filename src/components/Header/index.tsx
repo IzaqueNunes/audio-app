@@ -2,11 +2,10 @@ import { Text, View } from "react-native";
 
 export function Header() {
   return (
-    <View className="bg-gray-800 flex items-center p-4">
-      <Text className="text-white text-2xl">Áudios</Text>
-      <Text className="text-center text-white mt-4">
-        Fique a vontade para organizar a sequência de acordo com os seus áudios
-        favoritos.
+    <View className="flex items-center p-4 mt-8">
+      <Text className=" text-2xl">Bem vindo</Text>
+      <Text className="text-center  mt-4">
+        Escolha uma categoria para escutar suas músicas.
       </Text>
     </View>
   );
