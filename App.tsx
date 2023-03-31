@@ -1,11 +1,18 @@
-import { Text, View } from "react-native";
+import { StatusBar, Text, View } from "react-native";
 
 import { styles } from "./styles";
+import { Home } from "./src/screens/Home";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
+    <>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
+
+      <Home />
+    </>
   );
 }
