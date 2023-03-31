@@ -59,7 +59,7 @@ export default function Player() {
   }, [sound]);
 
   return (
-    <View className="w-full">
+    <View className="w-full h-full ">
       <View>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
@@ -70,7 +70,7 @@ export default function Player() {
 
         <Image
           source={require("../assets/cover.jpg")}
-          className="w-full h-screen absolute"
+          className="w-full h-[850px] absolute"
         />
 
         <View className="flex items-center">
