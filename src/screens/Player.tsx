@@ -2,7 +2,9 @@
 
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import { useEffect, useState } from "react";
-import { Audio } from "expo-av";
+import { Audio, AVPlaybackStatus } from "expo-av";
+
+import { Slider } from "@miblanchard/react-native-slider";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -13,7 +15,38 @@ import Pause from "../assets/pause.svg";
 export default function Player() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [sound, setSound] = useState<Audio.Sound | null>(null);
+  const [status, setStatus] = useState<AVPlaybackStatus | null>(null);
+  /* const [position, setPosition] = useState(0); */
+
+  state = {
+    value: 0.2,
+  };
+
   const navigation = useNavigation();
+
+  const onPlaybackStatusUpdate = (status: AVPlaybackStatus) => {
+    if (status.isLoaded && !status.isBuffering) {
+      setStatus(status);
+      setPosition(status.positionMillis);
+    }
+  };
+
+  const onSliderValueChange = async (value: number) => {
+    if (sound) {
+      await sound.setPositionAsync(value);
+      setPosition(value);
+    }
+  };
+
+  const getPositionString = () => {
+    if (status) {
+      const position = status.positionMillis;
+      const minutes = Math.floor(position / 60000);
+      const seconds = ((position % 60000) / 1000).toFixed(0).padStart(2, "0");
+      return `${minutes}:${seconds}`;
+    }
+    return "";
+  };
 
   async function playSound() {
     try {
@@ -38,11 +71,14 @@ export default function Player() {
     }
   }
 
+  let TIME15 = 15 * 1000; //15 SECONDS
+  let TIME30 = 30 * 1000; //30 SECONDS
+
   const handleForward = async () => {
     try {
       if (sound) {
         const position = await sound.getPositionAsync();
-        await sound.setPositionAsync(position + 15 * 1000);
+        await sound.setPositionAsync(position + TIME15);
       }
     } catch (error) {
       console.log(error);
@@ -88,9 +124,20 @@ export default function Player() {
               )}
             </TouchableOpacity>
           </View>
-          {/* <TouchableOpacity onPress={() => handleForward()}>
-            <Text>AVANÇAR</Text>
-          </TouchableOpacity> */}
+          <View className="px-8 w-full mt-32 flex ">
+            <Slider
+              style={{ width: "100%", height: 40 }}
+              minimumValue={0}
+              maximumValue={status?.positionMillis || 0}
+              minimumTrackTintColor="#ffffff"
+              maximumTrackTintColor="#000000"
+              thumbTintColor="#ffffff"
+            />
+            <View className="flex flex-row justify-between">
+              <Text className="text-white">00:00</Text>
+              <Text className="text-white">00:00</Text>
+            </View>
+          </View>
         </View>
       </View>
     </View>
