@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import React from "react";
 import {
   Text,
@@ -6,6 +8,7 @@ import {
   Image,
   FlatList,
   ImageSourcePropType,
+  ScrollView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { CARTEGORY_CARD } from "../../util/fakeBD";
@@ -24,25 +27,23 @@ export default function CategoryCard() {
   const navigation = useNavigation();
 
   return (
-    <View>
-      <FlatList
-        data={CARTEGORY_CARD}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            key={item.id}
-            onPress={() => navigation.navigate("List")}
-            className="w-full mb-4 h-40 bg-gray-500 rounded-md"
-          >
-            <View className="bg-white w-1/3 rounded-md m-2 flex items-center justify-center p-1 z-10">
-              <Text className="text-blue-600 font-semibold">{item.title}</Text>
-            </View>
-            <Image
-              source={item.cover}
-              className="w-full h-[160px] absolute rounded-md"
-            />
-          </TouchableOpacity>
-        )}
-      />
-    </View>
+    <FlatList
+      data={CARTEGORY_CARD}
+      renderItem={({ item }) => (
+        <TouchableOpacity
+          key={item.id}
+          onPress={() => navigation.navigate("List")}
+          className="w-full mb-4 h-40 bg-gray-500 rounded-md"
+        >
+          <View className="bg-white w-1/3 rounded-md m-2 flex items-center justify-center p-1 z-10">
+            <Text className="text-blue-600 font-semibold">{item.title}</Text>
+          </View>
+          <Image
+            source={item.cover}
+            className="w-full h-[160px] absolute rounded-md"
+          />
+        </TouchableOpacity>
+      )}
+    />
   );
 }

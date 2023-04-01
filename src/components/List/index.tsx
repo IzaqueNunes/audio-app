@@ -19,13 +19,13 @@ export default function ListComponent({ data }: ListProps) {
   const navigation = useNavigation();
 
   return (
-    <View>
+    <View className="flex justify-center w-full">
       <FlatList
         data={PLAYLIST}
         renderItem={({ item }) => (
           <TouchableOpacity
             key={item.id}
-            className="flex flex-row w-full h-16  px-4 border-b cursor-pointer"
+            className="flex flex-row items-center h-16  px-4 border-b cursor-pointer"
             onPress={() => navigation.navigate("Player")}
           >
             <View className="flex items-center justify-center bg-purple-400 rounded-full w-10 h-10 ">

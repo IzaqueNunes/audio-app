@@ -16,7 +16,7 @@ export default function List() {
         <BackArrow width={20} height={20} onPress={() => navigation.goBack()} />
       </View>
       <Text className="text-xl">Meditação</Text>
-      <View className="mt-8">
+      <View className="mt-8 w-full">
         <ListComponent />
       </View>
     </View>

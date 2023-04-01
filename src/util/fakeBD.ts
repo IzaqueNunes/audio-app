@@ -1,8 +1,9 @@
 import { CategoryCardType } from "../components/CategoriesCard";
 import { ListType } from "../components/List";
 
-const coverImage = require("../assets/card-cover1.jpg");
-const coverImage1 = require("../assets/card-cover.jpg");
+const coverImageMeditação = require("../assets/card-cover1.jpg");
+const coverImagePop = require("../assets/card-pop-cover.jpg");
+const coverImageVintage = require("../assets/card-vintage-cover.jpg");
 
 export const PLAYLIST: ListType[] = [
   {
@@ -31,16 +32,16 @@ export const CARTEGORY_CARD: CategoryCardType[] = [
   {
     id: "01",
     title: "Pop",
-    cover: coverImage,
+    cover: coverImagePop,
   },
   {
     id: "02",
-    title: "Pop",
-    cover: coverImage,
+    title: "Meditação",
+    cover: coverImageMeditação,
   },
   {
     id: "03",
-    title: "Pop",
-    cover: coverImage,
+    title: "Vintage",
+    cover: coverImageVintage,
   },
 ];
