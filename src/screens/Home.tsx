@@ -17,14 +17,6 @@ export function Home() {
       <Header />
       <ScrollView showsVerticalScrollIndicator={false} className="w-full mt-2">
         <CategoryCard />
-        <CategoryCard />
-        <CategoryCard />
-        <CategoryCard />
-        <CategoryCard />
-        <CategoryCard />
-        <CategoryCard />
-        <CategoryCard />
-        <CategoryCard />
       </ScrollView>
     </View>
   );
