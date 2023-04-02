@@ -7,9 +7,11 @@ import { Text, View, TouchableOpacity, FlatList } from "react-native";
 import { PLAYLIST } from "../../util/fakeBD";
 
 export type ListType = {
-  id: string;
+  id: number;
   title: string;
   singer: string;
+  time: string;
+  sound: string;
 };
 
 interface ListProps {
@@ -29,8 +31,10 @@ export default function ListComponent({ data }: ListProps) {
             className="flex flex-row items-center h-16  px-4 border-b cursor-pointer"
             onPress={() =>
               navigation.navigate("Player", {
+                id: item.id,
                 title: item.title,
                 singer: item.singer,
+                soundUrl: item.sound,
               })
             }
           >
@@ -43,7 +47,7 @@ export default function ListComponent({ data }: ListProps) {
               </Text>
               <View className="flex flex-row items-center space-x-2">
                 <Clock width={15} height={15} />
-                <Text className="text-[#a3a3a3]">1 min</Text>
+                <Text className="text-[#a3a3a3]">{item.time} min</Text>
               </View>
             </View>
           </TouchableOpacity>

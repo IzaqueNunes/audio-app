@@ -11,10 +11,13 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import Close from "../assets/close.svg";
 import Play from "../assets/play.svg";
 import Pause from "../assets/pause.svg";
+import Forward from "../assets/forward.svg";
 
 interface Params {
+  id: string;
   title: string;
   singer: string;
+  soundUrl: string;
 }
 
 export default function Player() {
@@ -23,38 +26,15 @@ export default function Player() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [sound, setSound] = useState<Audio.Sound | null>(null);
   const [status, setStatus] = useState<AVPlaybackStatus | null>(null);
+  const [position, setPosition] = useState(0);
 
-  const { title, singer } = route.params as Params;
+  const { id, title, singer, soundUrl } = route.params as Params;
 
   state = {
     value: 0.2,
   };
 
   const navigation = useNavigation();
-
-  const onPlaybackStatusUpdate = (status: AVPlaybackStatus) => {
-    if (status.isLoaded && !status.isBuffering) {
-      setStatus(status);
-      setPosition(status.positionMillis);
-    }
-  };
-
-  const onSliderValueChange = async (value: number) => {
-    if (sound) {
-      await sound.setPositionAsync(value);
-      setPosition(value);
-    }
-  };
-
-  const getPositionString = () => {
-    if (status) {
-      const position = status.positionMillis;
-      const minutes = Math.floor(position / 60000);
-      const seconds = ((position % 60000) / 1000).toFixed(0).padStart(2, "0");
-      return `${minutes}:${seconds}`;
-    }
-    return "";
-  };
 
   async function playSound() {
     try {
@@ -67,9 +47,7 @@ export default function Player() {
           setIsPlaying(true);
         }
       } else {
-        const { sound: newSound } = await Audio.Sound.createAsync(
-          require("../sounds/sound.mp3")
-        );
+        const { sound: newSound } = await Audio.Sound.createAsync(soundUrl);
         setSound(newSound);
         await newSound.playAsync();
         setIsPlaying(true);
@@ -84,10 +62,23 @@ export default function Player() {
 
   const handleForward = async () => {
     try {
-      if (sound) {
-        const position = await sound.getPositionAsync();
-        await sound.setPositionAsync(position + TIME15);
-      }
+      const status = await sound.getStatusAsync();
+      const positionMillis = status.positionMillis;
+      setPosition(positionMillis);
+      await sound.setPositionAsync(positionMillis + TIME30); // define a posição atual do áudio para 10 segundos
+      await sound.playAsync();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleRewind = async () => {
+    try {
+      const status = await sound.getStatusAsync();
+      const positionMillis = status.positionMillis;
+      setPosition(positionMillis);
+      await sound.setPositionAsync(positionMillis - TIME15); // define a posição atual do áudio para 10 segundos
+      await sound.playAsync();
     } catch (error) {
       console.log(error);
     }
@@ -113,7 +104,7 @@ export default function Player() {
         </TouchableOpacity>
 
         <Image
-          source={require("../assets/cover.jpg")}
+          source={require("../assets/cover1.jpg")}
           className="w-full h-[850px] absolute"
         />
 
@@ -122,13 +113,21 @@ export default function Player() {
           <Text className="font-semibold text-base text-white">{singer}</Text>
         </View>
         <View className="w-full h-4/5 flex items-center justify-center">
-          <View className="p-6 rounded-full backdrop-blur-3xl bg-white/50">
-            <TouchableOpacity onPress={playSound}>
-              {isPlaying ? (
-                <Pause width={60} height={60} />
-              ) : (
-                <Play width={60} height={60} />
-              )}
+          <View className="flex flex-row items-center space-x-4">
+            <TouchableOpacity onPress={handleRewind} className="rotate-180">
+              <Forward width={60} height={60} />
+            </TouchableOpacity>
+            <View className="p-6 rounded-full backdrop-blur-3xl bg-white/50">
+              <TouchableOpacity onPress={playSound}>
+                {isPlaying ? (
+                  <Pause width={60} height={60} />
+                ) : (
+                  <Play width={60} height={60} />
+                )}
+              </TouchableOpacity>
+            </View>
+            <TouchableOpacity onPress={handleForward}>
+              <Forward width={60} height={60} />
             </TouchableOpacity>
           </View>
           <View className="px-8 w-full mt-32 flex ">
@@ -139,6 +138,7 @@ export default function Player() {
               minimumTrackTintColor="#ffffff"
               maximumTrackTintColor="#000000"
               thumbTintColor="#ffffff"
+              value={position}
             />
             <View className="flex flex-row justify-between">
               <Text className="text-white">00:00</Text>
