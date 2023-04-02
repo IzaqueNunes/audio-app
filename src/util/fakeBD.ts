@@ -9,22 +9,27 @@ export const PLAYLIST: ListType[] = [
   {
     id: "01",
     title: "Eyes Closed",
+    singer: "Ed Sheeran",
   },
   {
     id: "02",
     title: "Shippuden",
+    singer: "Ed Sheeran",
   },
   {
     id: "03",
     title: "Rising Dragon",
+    singer: "Ed Sheeran",
   },
   {
     id: "04",
     title: "Risking it all",
+    singer: "Ed Sheeran",
   },
   {
     id: "05",
     title: "Gekiha",
+    singer: "Ed Sheeran",
   },
 ];
 

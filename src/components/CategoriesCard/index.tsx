@@ -32,7 +32,7 @@ export default function CategoryCard() {
       renderItem={({ item }) => (
         <TouchableOpacity
           key={item.id}
-          onPress={() => navigation.navigate("List")}
+          onPress={() => navigation.navigate("List", { category: item.title })}
           className="w-full mb-4 h-40 bg-gray-500 rounded-md"
         >
           <View className="bg-white w-1/3 rounded-md m-2 flex items-center justify-center p-1 z-10">

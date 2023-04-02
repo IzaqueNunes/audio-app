@@ -9,6 +9,7 @@ import { PLAYLIST } from "../../util/fakeBD";
 export type ListType = {
   id: string;
   title: string;
+  singer: string;
 };
 
 interface ListProps {
@@ -26,13 +27,20 @@ export default function ListComponent({ data }: ListProps) {
           <TouchableOpacity
             key={item.id}
             className="flex flex-row items-center h-16  px-4 border-b cursor-pointer"
-            onPress={() => navigation.navigate("Player")}
+            onPress={() =>
+              navigation.navigate("Player", {
+                title: item.title,
+                singer: item.singer,
+              })
+            }
           >
             <View className="flex items-center justify-center bg-purple-400 rounded-full w-10 h-10 ">
               <Play width={20} height={20} />
             </View>
             <View className="flex pl-4">
-              <Text>{item.title}</Text>
+              <Text>
+                {item.title} - {item.singer}
+              </Text>
               <View className="flex flex-row items-center space-x-2">
                 <Clock width={15} height={15} />
                 <Text className="text-[#a3a3a3]">1 min</Text>

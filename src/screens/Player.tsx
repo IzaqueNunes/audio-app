@@ -6,17 +6,25 @@ import { Audio, AVPlaybackStatus } from "expo-av";
 
 import { Slider } from "@miblanchard/react-native-slider";
 
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 import Close from "../assets/close.svg";
 import Play from "../assets/play.svg";
 import Pause from "../assets/pause.svg";
 
+interface Params {
+  title: string;
+  singer: string;
+}
+
 export default function Player() {
+  const route = useRoute();
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [sound, setSound] = useState<Audio.Sound | null>(null);
   const [status, setStatus] = useState<AVPlaybackStatus | null>(null);
-  /* const [position, setPosition] = useState(0); */
+
+  const { title, singer } = route.params as Params;
 
   state = {
     value: 0.2,
@@ -110,9 +118,8 @@ export default function Player() {
         />
 
         <View className="flex items-center">
-          <Text className="font-semibold text-2xl text-white">
-            Onde e como posso meditar?
-          </Text>
+          <Text className="font-semibold text-2xl text-white">{title}</Text>
+          <Text className="font-semibold text-base text-white">{singer}</Text>
         </View>
         <View className="w-full h-4/5 flex items-center justify-center">
           <View className="p-6 rounded-full backdrop-blur-3xl bg-white/50">
