@@ -25,8 +25,9 @@
     </div>
     <div align="left">
         <h1>Como contribuir</h1>
-        ```bash
+        ```ruby
         #Clone o repositório do projeto
         $ git clone https://github.com/IzaqueNunes/audio-app.git
+        ```
     </div>
 </div>
