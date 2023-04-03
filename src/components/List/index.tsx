@@ -13,6 +13,7 @@ export type ListType = {
   time: string;
   sound: string;
   cover: string;
+  category: string;
 };
 
 interface ListProps {
@@ -37,6 +38,7 @@ export default function ListComponent({ data }: ListProps) {
                 singer: item.singer,
                 soundUrl: item.sound,
                 cover: item.cover,
+                category: item.category,
               })
             }
           >

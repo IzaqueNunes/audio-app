@@ -31,6 +31,7 @@ export const PLAYLIST: ListType[] = [
     time: "2:23",
     sound: antiHeroSound,
     cover: coverAntiHero,
+    category: "Pop",
   },
   {
     id: 2,
@@ -39,6 +40,7 @@ export const PLAYLIST: ListType[] = [
     time: "2:30",
     sound: asItWasSound,
     cover: coverAsItWas,
+    category: "Pop",
   },
   {
     id: 3,
@@ -47,6 +49,7 @@ export const PLAYLIST: ListType[] = [
     time: "2:40",
     sound: eyesClosedSound,
     cover: coverEyesClosed,
+    category: "Pop",
   },
   {
     id: 4,
@@ -55,6 +58,7 @@ export const PLAYLIST: ListType[] = [
     time: "2:20",
     sound: flowersSound,
     cover: coverFlowers,
+    category: "Pop",
   },
   {
     id: 5,
@@ -63,6 +67,7 @@ export const PLAYLIST: ListType[] = [
     time: "3:23",
     sound: heavenSound,
     cover: coverHeaven,
+    category: "Pop",
   },
   {
     id: 6,
@@ -71,6 +76,7 @@ export const PLAYLIST: ListType[] = [
     time: "3:21",
     sound: iAintWorriedSound,
     cover: coverIAintWorried,
+    category: "Pop",
   },
   {
     id: 7,
@@ -79,6 +85,7 @@ export const PLAYLIST: ListType[] = [
     time: "3:00",
     sound: somethingInTheOrangeSound,
     cover: coverSomethingInTheOrange,
+    category: "Pop",
   },
   {
     id: 8,
@@ -87,6 +94,7 @@ export const PLAYLIST: ListType[] = [
     time: "2:37",
     sound: untilIFoundYouSound,
     cover: coverUntilIFoundYou,
+    category: "Pop",
   },
 ];
 

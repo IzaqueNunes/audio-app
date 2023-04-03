@@ -20,6 +20,7 @@ interface Params {
   singer: string;
   soundUrl: string;
   cover: string;
+  category: string;
 }
 
 export default function Player() {
@@ -31,7 +32,8 @@ export default function Player() {
   const [position, setPosition] = useState(0);
   const [duration, setDuration] = useState(0);
 
-  const { id, title, singer, soundUrl, cover } = route.params as Params;
+  const { id, title, singer, soundUrl, cover, category } =
+    route.params as Params;
 
   state = {
     value: 0.2,
@@ -108,7 +110,10 @@ export default function Player() {
         >
           <Close width={20} height={20} />
         </TouchableOpacity>
-
+        <View className="flex items-center -mt-6">
+          <Text className="text-xl  text-white">{category}</Text>
+          <Text className="text-lg  text-white">Playlist</Text>
+        </View>
         <View className="w-full items-center mt-8">
           <Image source={cover} className="w-[250px] h-[250px] rounded-2xl" />
         </View>
