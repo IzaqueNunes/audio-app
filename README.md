@@ -17,8 +17,9 @@
             Typescript      
         </li>
     </div>
-    <h1>Navegação</h1>
-    <div>
+    
+    <div align="left">
+        <h1>Navegação</h1>
         <img src="./src/assets/Navegação.gif">
     </div>
 </div>
