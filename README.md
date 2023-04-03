@@ -2,7 +2,7 @@
 ### 👨‍💻 Telas
 ## 
 
-<img src="./src/assets/Tela-caregamento.png" width="300px" height="600px">
+<img src="./src/assets/Tela-carregamento.png" width="300px" height="600px">
 <img src="./src/assets/Tela-inicial.png" width="300px" height="600px">
 <img src="./src/assets/Tela-playlist.png" width="300px" height="600px">
 <img src="./src/assets/Tela-player.png" width="300px" height="600px">
