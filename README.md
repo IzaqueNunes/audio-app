@@ -23,6 +23,19 @@ Projeto de um aplicativo simples de música 👩‍💻
 <img src="./src/assets/Navegação.gif">
 
 ### 👩‍💻 Como contribuir
-
-
-
+#### 1. Clone o repositório do projeto
+```
+$ git clone https://github.com/IzaqueNunes/audio-app.git
+```
+#### 2. Acesse a pasta
+```
+$ cd audio-app
+```
+#### 3. Instale as dependencias
+```
+$ npm install
+```
+#### 4. Rode o app
+```
+$ npx expo start
+```
