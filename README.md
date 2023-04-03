@@ -6,13 +6,13 @@
         <p>Projeto de um aplicativo simples de música 👩‍💻</p>
         <p>Foram usadas as seguintes tecnologias:</p>
         <li>
-            <ul>React Native</ul>
+            React Native
         </li>
         <li>
-            <ul>Nativewind</ul>
+            Nativewind      
         </li>
         <li>
-            <ul>Typescript</ul>
+            Typescript      
         </li>
          
     </div>
