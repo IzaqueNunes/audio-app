@@ -18,11 +18,12 @@ export default function List() {
   const { category } = route.params as Params;
 
   return (
-    <View className="flex items-center p-4 mt-8">
-      <View className="flex w-full items-start justify-start">
+    <View className="flex items-center p-4 bg-black h-full">
+      <View className="flex mt-8 w-full items-start justify-start">
         <BackArrow width={20} height={20} onPress={() => navigation.goBack()} />
       </View>
-      <Text className="text-xl">{category}</Text>
+      <Text className="text-2xl  text-white">{category}</Text>
+      <Text className="text-lg  text-white">Playlist</Text>
       <View className="mt-8 w-full">
         <ListComponent />
       </View>

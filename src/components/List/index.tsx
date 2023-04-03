@@ -28,7 +28,7 @@ export default function ListComponent({ data }: ListProps) {
         renderItem={({ item }) => (
           <TouchableOpacity
             key={item.id}
-            className="flex flex-row items-center h-16  px-4 border-b cursor-pointer"
+            className="flex flex-row items-center h-16  px-4 cursor-pointer"
             onPress={() =>
               navigation.navigate("Player", {
                 id: item.id,
@@ -38,17 +38,17 @@ export default function ListComponent({ data }: ListProps) {
               })
             }
           >
-            <View className="flex items-center justify-center bg-purple-400 rounded-full w-10 h-10 ">
-              <Play width={20} height={20} />
-            </View>
-            <View className="flex pl-4">
-              <Text>
-                {item.title} - {item.singer}
-              </Text>
-              <View className="flex flex-row items-center space-x-2">
-                <Clock width={15} height={15} />
-                <Text className="text-[#a3a3a3]">{item.time} min</Text>
+            <View className="flex flex-row flex-1">
+              <View className="flex items-center justify-center bg-[#8257E5] rounded-full w-10 h-10 ">
+                <Play width={20} height={20} />
               </View>
+              <View className="flex pl-4">
+                <Text className="font-bold  text-white">{item.title}</Text>
+                <Text className="text-white">{item.singer}</Text>
+              </View>
+            </View>
+            <View className="flex  items-end">
+              <Text className="text-[#a3a3a3]">{item.time}</Text>
             </View>
           </TouchableOpacity>
         )}
