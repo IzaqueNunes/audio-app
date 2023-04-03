@@ -18,8 +18,8 @@
         </li>
     </div>
     
-    <div align="left">
-        <h1>Navegação</h1>
+    <div>
+        <h1 align="left">Navegação</h1>
         <img src="./src/assets/Navegação.gif">
     </div>
 </div>
