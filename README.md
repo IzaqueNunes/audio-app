@@ -23,4 +23,10 @@
     <div>
         <img src="./src/assets/Navegação.gif">
     </div>
+    <div>
+        <h1>Como contribuir</h1>
+        ```bash
+        #Clone o repositório do projeto
+        $ git clone https://github.com/IzaqueNunes/audio-app.git
+    </div>
 </div>
