@@ -9,7 +9,9 @@ module.exports = {
       colors:{
         'blue': {
           600: '#6FC8D7',
-         
+        },
+        'purple': {
+          600: '#8257E5'
         }
       },
       fontFamily: {

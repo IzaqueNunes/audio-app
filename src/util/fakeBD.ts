@@ -1,9 +1,12 @@
 import { CategoryCardType } from "../components/CategoriesCard";
 import { ListType } from "../components/List";
 
-const coverImageMeditação = require("../assets/card-cover1.jpg");
-const coverImagePop = require("../assets/card-pop-cover.jpg");
-const coverImageVintage = require("../assets/card-vintage-cover.jpg");
+const coverImageMeditação1 = require("../assets/cover-card-meditation-1.jpg");
+const coverImageMeditação2 = require("../assets/card-cover1.jpg");
+const coverImageMeditação3 = require("../assets/cover-card-meditation-3.jpg");
+const coverImagePop = require("../assets/cover-card-pop-1.jpg");
+const coverImagePop2 = require("../assets/cover-card-pop-2.jpg");
+const coverImagePop3 = require("../assets/cover-card-pop-3.jpg");
 
 const antiHeroSound = require("../sounds/Anti-Hero.mp3");
 const asItWasSound = require("../sounds/As-It-Was.mp3");
@@ -98,7 +101,7 @@ export const PLAYLIST: ListType[] = [
   },
 ];
 
-export const CARTEGORY_CARD: CategoryCardType[] = [
+export const CARTEGORY_CARD_POP: CategoryCardType[] = [
   {
     id: "01",
     title: "Pop",
@@ -106,12 +109,30 @@ export const CARTEGORY_CARD: CategoryCardType[] = [
   },
   {
     id: "02",
-    title: "Meditação",
-    cover: coverImageMeditação,
+    title: "Best Vibe",
+    cover: coverImagePop2,
   },
   {
     id: "03",
-    title: "Vintage",
-    cover: coverImageVintage,
+    title: "Workout",
+    cover: coverImagePop3,
+  },
+];
+
+export const CARTEGORY_CARD_MEDITATION: CategoryCardType[] = [
+  {
+    id: "01",
+    title: "Zen",
+    cover: coverImageMeditação2,
+  },
+  {
+    id: "02",
+    title: "Yoga",
+    cover: coverImageMeditação3,
+  },
+  {
+    id: "03",
+    title: "Guiada",
+    cover: coverImageMeditação1,
   },
 ];

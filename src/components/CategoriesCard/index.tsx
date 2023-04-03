@@ -11,7 +11,10 @@ import {
   ScrollView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { CARTEGORY_CARD } from "../../util/fakeBD";
+import {
+  CARTEGORY_CARD_MEDITATION,
+  CARTEGORY_CARD_POP,
+} from "../../util/fakeBD";
 
 export type CategoryCardType = {
   id: string;
@@ -27,23 +30,59 @@ export default function CategoryCard() {
   const navigation = useNavigation();
 
   return (
-    <FlatList
-      data={CARTEGORY_CARD}
-      renderItem={({ item }) => (
-        <TouchableOpacity
-          key={item.id}
-          onPress={() => navigation.navigate("List", { category: item.title })}
-          className="w-full mb-4 h-40 bg-gray-500 rounded-md"
-        >
-          <View className="bg-white w-1/3 rounded-md m-2 flex items-center justify-center p-1 z-10">
-            <Text className="text-[#8257E5] font-semibold">{item.title}</Text>
-          </View>
-          <Image
-            source={item.cover}
-            className="w-full h-[160px] absolute rounded-md"
-          />
-        </TouchableOpacity>
-      )}
-    />
+    <View className="flex">
+      <Text className="text-white font-medium text-lg">O melhor do Pop</Text>
+      <FlatList
+        horizontal={true}
+        data={CARTEGORY_CARD_POP}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            key={item.id}
+            onPress={() =>
+              navigation.navigate("List", { category: item.title })
+            }
+            className="w-40 h-64 rounded-md mr-4 mt-4"
+          >
+            <View className="flex items-center justify-center p-1 z-10">
+              <Text className="text-white font-semibold">{item.title}</Text>
+            </View>
+            <Image
+              source={item.cover}
+              className="w-full h-[160px] absolute rounded-md"
+            />
+            <View className="flex-1 absolute">
+              <Text className="text-white mt-44">{item.title}</Text>
+            </View>
+          </TouchableOpacity>
+        )}
+      />
+      <Text className="text-white -mt-8 font-medium text-lg">
+        Meditando com você
+      </Text>
+      <FlatList
+        horizontal={true}
+        data={CARTEGORY_CARD_MEDITATION}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            key={item.id}
+            onPress={() =>
+              navigation.navigate("List", { category: item.title })
+            }
+            className="w-40 h-64 rounded-md mr-4 mt-4"
+          >
+            <View className="flex items-center justify-center p-1 z-10">
+              <Text className="text-white font-semibold">{item.title}</Text>
+            </View>
+            <Image
+              source={item.cover}
+              className="w-full h-[160px] absolute rounded-md"
+            />
+            <View className="flex-1 absolute">
+              <Text className="text-white mt-44">{item.title}</Text>
+            </View>
+          </TouchableOpacity>
+        )}
+      />
+    </View>
   );
 }

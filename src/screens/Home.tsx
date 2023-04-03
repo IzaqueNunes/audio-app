@@ -14,7 +14,9 @@ export function Home() {
   return (
     <View className="flex w-full px-4 h-full bg-black">
       <Header />
-      <CategoryCard />
+      <View className="">
+        <CategoryCard />
+      </View>
     </View>
   );
 }
