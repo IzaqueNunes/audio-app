@@ -19,7 +19,9 @@
     </div>
     
     <div>
-        <h1 align="left">Navegação</h1>
+        <div align="left">
+           <h1>Navegação</h1>
+        </div>
         <img src="./src/assets/Navegação.gif">
     </div>
 </div>
