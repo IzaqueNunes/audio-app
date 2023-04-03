@@ -23,7 +23,7 @@
     <div>
         <img src="./src/assets/Navegação.gif">
     </div>
-    <div>
+    <div align="left">
         <h1>Como contribuir</h1>
         ```bash
         #Clone o repositório do projeto
