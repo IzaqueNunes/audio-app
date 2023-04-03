@@ -59,6 +59,13 @@ export default function Player() {
         const status = await newSound.getStatusAsync();
         const durationMillis = status.durationMillis;
         setDuration(durationMillis);
+
+        newSound.setOnPlaybackStatusUpdate((status) => {
+          //PEGANDO STATUS ATUAL DA POSIÇÃO DO AUDIO
+          if (status.isLoaded) {
+            setPosition(status.positionMillis);
+          }
+        });
       }
     } catch (error) {
       console.log(error);
@@ -127,6 +134,8 @@ export default function Player() {
             minimumValue={0}
             maximumValue={duration}
             value={position}
+            onValueChange={(value) => this.setValue(value)}
+            onSlidingComplete={() => setIsPlaying(false)}
           />
           <View className="flex flex-row justify-between">
             <Text className="text-white">{formatTime(position)}</Text>
