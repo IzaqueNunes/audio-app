@@ -1,6 +1,6 @@
+//@ts-nocheck
 import React from "react";
 import Play from "../../assets/play.svg";
-import Clock from "../../assets/clock-gray.svg";
 import { useNavigation } from "@react-navigation/native";
 
 import { Text, View, TouchableOpacity, FlatList } from "react-native";
@@ -12,6 +12,7 @@ export type ListType = {
   singer: string;
   time: string;
   sound: string;
+  cover: string;
 };
 
 interface ListProps {
@@ -35,6 +36,7 @@ export default function ListComponent({ data }: ListProps) {
                 title: item.title,
                 singer: item.singer,
                 soundUrl: item.sound,
+                cover: item.cover,
               })
             }
           >

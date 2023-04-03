@@ -14,6 +14,15 @@ const iAintWorriedSound = require("../sounds/I-Aint-Worried.mp3");
 const somethingInTheOrangeSound = require("../sounds/Something-In-The-Orange.mp3");
 const untilIFoundYouSound = require("../sounds/Until-I-Found-You.mp3");
 
+const coverAntiHero = require("../assets/cover-anti-hero.jpg");
+const coverAsItWas = require("../assets/as-it-was-cover.jpg");
+const coverEyesClosed = require("../assets/eyes-closed-cover.jpg");
+const coverFlowers = require("../assets/flowers-cover.jpg");
+const coverHeaven = require("../assets/heaven-cover.png");
+const coverIAintWorried = require("../assets/I-Aint-Worried-cover.jpg");
+const coverSomethingInTheOrange = require("../assets/something-in-the-orange-cover.jpg");
+const coverUntilIFoundYou = require("../assets/until-i-found-you-cover.jpg");
+
 export const PLAYLIST: ListType[] = [
   {
     id: 1,
@@ -21,6 +30,7 @@ export const PLAYLIST: ListType[] = [
     singer: "Taylor Swift",
     time: "2:23",
     sound: antiHeroSound,
+    cover: coverAntiHero,
   },
   {
     id: 2,
@@ -28,6 +38,7 @@ export const PLAYLIST: ListType[] = [
     singer: "Harry Styles",
     time: "2:30",
     sound: asItWasSound,
+    cover: coverAsItWas,
   },
   {
     id: 3,
@@ -35,6 +46,7 @@ export const PLAYLIST: ListType[] = [
     singer: "Ed Sheeran",
     time: "2:40",
     sound: eyesClosedSound,
+    cover: coverEyesClosed,
   },
   {
     id: 4,
@@ -42,6 +54,7 @@ export const PLAYLIST: ListType[] = [
     singer: "Miley Cyrus",
     time: "2:20",
     sound: flowersSound,
+    cover: coverFlowers,
   },
   {
     id: 5,
@@ -49,6 +62,7 @@ export const PLAYLIST: ListType[] = [
     singer: "Niall Horan",
     time: "3:23",
     sound: heavenSound,
+    cover: coverHeaven,
   },
   {
     id: 6,
@@ -56,6 +70,7 @@ export const PLAYLIST: ListType[] = [
     singer: "One Repunlic",
     time: "3:21",
     sound: iAintWorriedSound,
+    cover: coverIAintWorried,
   },
   {
     id: 7,
@@ -63,6 +78,7 @@ export const PLAYLIST: ListType[] = [
     singer: "Zach Bryan",
     time: "3:00",
     sound: somethingInTheOrangeSound,
+    cover: coverSomethingInTheOrange,
   },
   {
     id: 8,
@@ -70,6 +86,7 @@ export const PLAYLIST: ListType[] = [
     singer: "Stephen Sanchez ft. Em Beihold",
     time: "2:37",
     sound: untilIFoundYouSound,
+    cover: coverUntilIFoundYou,
   },
 ];
 

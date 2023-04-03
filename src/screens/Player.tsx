@@ -19,6 +19,7 @@ interface Params {
   title: string;
   singer: string;
   soundUrl: string;
+  cover: string;
 }
 
 export default function Player() {
@@ -30,7 +31,7 @@ export default function Player() {
   const [position, setPosition] = useState(0);
   const [duration, setDuration] = useState(0);
 
-  const { id, title, singer, soundUrl } = route.params as Params;
+  const { id, title, singer, soundUrl, cover } = route.params as Params;
 
   state = {
     value: 0.2,
@@ -99,8 +100,8 @@ export default function Player() {
   }, [sound]);
 
   return (
-    <View className="w-full h-full ">
-      <View>
+    <View className="w-full h-full bg-black">
+      <View className="mt-8">
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           className="z-10 p-8"
@@ -108,43 +109,41 @@ export default function Player() {
           <Close width={20} height={20} />
         </TouchableOpacity>
 
-        <Image
-          source={require("../assets/cover1.jpg")}
-          className="w-full h-[850px] absolute"
-        />
-
-        <View className="flex items-center">
-          <Text className="font-semibold text-2xl text-white">{title}</Text>
-          <Text className="font-semibold text-base text-white">{singer}</Text>
+        <View className="w-full items-center mt-8">
+          <Image source={cover} className="w-[250px] h-[250px] rounded-2xl" />
         </View>
-        <View className="w-full h-4/5 flex items-center justify-center">
-          <View className="flex flex-row items-center space-x-8">
-            <TouchableOpacity onPress={handleRewind} className="rotate-180">
-              <Forward width={60} height={60} />
-            </TouchableOpacity>
-            <View className="p-6 rounded-full backdrop-blur-3xl bg-white/50">
-              <TouchableOpacity onPress={playSound}>
-                {isPlaying ? (
-                  <Pause width={60} height={60} />
-                ) : (
-                  <Play width={60} height={60} />
-                )}
-              </TouchableOpacity>
-            </View>
-            <TouchableOpacity onPress={handleForward}>
-              <Forward width={60} height={60} />
-            </TouchableOpacity>
+        <View className="flex items-start ml-8 mt-8">
+          <Text className="font-semibold text-2xl text-white">{title}</Text>
+          <Text className="font-semibold text-sm text-white">{singer}</Text>
+        </View>
+        <View className="px-8 w-full mt-4 flex ">
+          <Slider
+            style={{ width: "100%", height: 40 }}
+            minimumValue={0}
+            maximumValue={duration}
+            value={position}
+          />
+          <View className="flex flex-row justify-between">
+            <Text className="text-white">{formatTime(position)}</Text>
+            <Text className="text-white">{formatTime(duration)}</Text>
           </View>
-          <View className="px-8 w-full mt-32 flex ">
-            <Slider
-              style={{ width: "100%", height: 40 }}
-              minimumValue={0}
-              maximumValue={duration}
-              value={position}
-            />
-            <View className="flex flex-row justify-between">
-              <Text className="text-white">{formatTime(position)}</Text>
-              <Text className="text-white">{formatTime(duration)}</Text>
+          <View className=" w-full items-center mt-8">
+            <View className="flex flex-row items-center space-x-8">
+              <TouchableOpacity onPress={handleRewind} className="rotate-180">
+                <Forward width={30} height={30} />
+              </TouchableOpacity>
+              <View className="p-6 rounded-full ">
+                <TouchableOpacity onPress={playSound}>
+                  {isPlaying ? (
+                    <Pause width={30} height={30} />
+                  ) : (
+                    <Play width={30} height={30} />
+                  )}
+                </TouchableOpacity>
+              </View>
+              <TouchableOpacity onPress={handleForward}>
+                <Forward width={30} height={30} />
+              </TouchableOpacity>
             </View>
           </View>
         </View>
