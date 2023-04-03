@@ -27,6 +27,8 @@ Projeto de um aplicativo simples de música 👩‍💻
 - [Typescript](https://www.typescriptlang.org/)
 
 - [Expo](https://docs.expo.dev/)
+
+- [Expo AV](https://docs.expo.dev/versions/latest/sdk/av/)
  
 ### 🛳 Navegação
 ##
