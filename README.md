@@ -24,11 +24,8 @@
         <img src="./src/assets/Navegação.gif">
     </div>
     <div align="left">
-        # Markdown
         <h1>Como contribuir</h1>
-        ```
         #Clone o repositório do projeto
         $ git clone https://github.com/IzaqueNunes/audio-app.git
-        ```
     </div>
 </div>
