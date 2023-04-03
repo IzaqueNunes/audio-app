@@ -3,7 +3,7 @@ import React from "react";
 import Play from "../../assets/play.svg";
 import { useNavigation } from "@react-navigation/native";
 
-import { Text, View, TouchableOpacity, FlatList } from "react-native";
+import { Text, View, TouchableOpacity, FlatList, Image } from "react-native";
 import { PLAYLIST } from "../../util/fakeBD";
 
 export type ListType = {
@@ -44,7 +44,10 @@ export default function ListComponent({ data }: ListProps) {
           >
             <View className="flex flex-row flex-1">
               <View className="flex items-center justify-center bg-[#8257E5] rounded-full w-10 h-10 ">
-                <Play width={20} height={20} />
+                <Image
+                  source={item.cover}
+                  className="w-full h-full rounded-md"
+                />
               </View>
               <View className="flex pl-4">
                 <Text className="font-bold  text-white">{item.title}</Text>
