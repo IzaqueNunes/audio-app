@@ -2,7 +2,7 @@
     <div>
         <img src="./src/assets/Tela-inicial.png" width="300px" height="600px">
     </div>
-    <div>
+    <div align="left">
         <p>Projeto de um aplicativo simples de música 👩‍💻</p>
         <p>Foram usadas as seguintes tecnologias:</p>
         <li>
