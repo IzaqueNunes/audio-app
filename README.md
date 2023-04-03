@@ -2,9 +2,16 @@
 ### 👨‍💻 Telas
 ## 
 
+### Tela de carregamento
 <img src="./src/assets/Tela-carregamento.png" width="300px" height="600px">
+
+### Tela inicial
 <img src="./src/assets/Tela-inicial.png" width="300px" height="600px">
+
+### Tela playlist
 <img src="./src/assets/Tela-playlist.png" width="300px" height="600px">
+
+### Tela player
 <img src="./src/assets/Tela-player.png" width="300px" height="600px">
 
 ### ℹ Sobre
