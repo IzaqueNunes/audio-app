@@ -43,7 +43,7 @@ export default function ListComponent({ data }: ListProps) {
             }
           >
             <View className="flex flex-row flex-1">
-              <View className="flex items-center justify-center bg-[#8257E5] rounded-full w-10 h-10 ">
+              <View className="flex items-center justify-center rounded-full w-10 h-10 ">
                 <Image
                   source={item.cover}
                   className="w-full h-full rounded-md"
