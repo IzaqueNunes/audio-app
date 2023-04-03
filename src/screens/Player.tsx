@@ -151,7 +151,7 @@ export default function Player() {
             onValueChange={(value) => setPosition(value)}
             minimumTrackTintColor="#FFFFFF"
             maximumTrackTintColor="#8a8888"
-            thumbTintColor="#FFFFFF"
+            thumbTintColor="transparent"
           />
           <View className="flex flex-row justify-between">
             <Text className="text-white">{formatTime(position)}</Text>
