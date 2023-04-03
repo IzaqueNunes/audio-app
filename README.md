@@ -1,5 +1,5 @@
 
-### 👨‍💻 Tela inicial do App
+### 👨‍💻 Telas
 ## 
 
 <img src="./src/assets/Tela-inicial.png" width="300px" height="600px">
