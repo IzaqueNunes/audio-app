@@ -12,6 +12,7 @@ import Close from "../assets/close.svg";
 import Play from "../assets/play.svg";
 import Pause from "../assets/pause.svg";
 import Forward from "../assets/forward.svg";
+import { formatTime } from "../util/formatTime";
 
 interface Params {
   id: string;
@@ -27,6 +28,7 @@ export default function Player() {
   const [sound, setSound] = useState<Audio.Sound | null>(null);
   const [status, setStatus] = useState<AVPlaybackStatus | null>(null);
   const [position, setPosition] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   const { id, title, singer, soundUrl } = route.params as Params;
 
@@ -51,6 +53,9 @@ export default function Player() {
         setSound(newSound);
         await newSound.playAsync();
         setIsPlaying(true);
+        const status = await newSound.getStatusAsync();
+        const durationMillis = status.durationMillis;
+        setDuration(durationMillis);
       }
     } catch (error) {
       console.log(error);
@@ -113,7 +118,7 @@ export default function Player() {
           <Text className="font-semibold text-base text-white">{singer}</Text>
         </View>
         <View className="w-full h-4/5 flex items-center justify-center">
-          <View className="flex flex-row items-center space-x-4">
+          <View className="flex flex-row items-center space-x-8">
             <TouchableOpacity onPress={handleRewind} className="rotate-180">
               <Forward width={60} height={60} />
             </TouchableOpacity>
@@ -134,15 +139,12 @@ export default function Player() {
             <Slider
               style={{ width: "100%", height: 40 }}
               minimumValue={0}
-              maximumValue={status?.positionMillis || 0}
-              minimumTrackTintColor="#ffffff"
-              maximumTrackTintColor="#000000"
-              thumbTintColor="#ffffff"
+              maximumValue={duration}
               value={position}
             />
             <View className="flex flex-row justify-between">
-              <Text className="text-white">00:00</Text>
-              <Text className="text-white">00:00</Text>
+              <Text className="text-white">{formatTime(position)}</Text>
+              <Text className="text-white">{formatTime(duration)}</Text>
             </View>
           </View>
         </View>
