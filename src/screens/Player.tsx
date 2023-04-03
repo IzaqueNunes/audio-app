@@ -64,6 +64,9 @@ export default function Player() {
           //PEGANDO STATUS ATUAL DA POSIÇÃO DO AUDIO
           if (status.isLoaded) {
             setPosition(status.positionMillis);
+            if (status.positionMillis === status.durationMillis) {
+              setIsPlaying(false);
+            }
           }
         });
       }
@@ -86,6 +89,8 @@ export default function Player() {
       console.log(error);
     }
   };
+
+  const gettingStatusLive = async () => {};
 
   const handleRewind = async () => {
     try {
@@ -135,7 +140,6 @@ export default function Player() {
             maximumValue={duration}
             value={position}
             onValueChange={(value) => this.setValue(value)}
-            onSlidingComplete={() => setIsPlaying(false)}
           />
           <View className="flex flex-row justify-between">
             <Text className="text-white">{formatTime(position)}</Text>
@@ -146,7 +150,7 @@ export default function Player() {
               <TouchableOpacity onPress={handleRewind} className="rotate-180">
                 <Forward width={30} height={30} />
               </TouchableOpacity>
-              <View className="p-6 rounded-full ">
+              <View className="p-6 rounded-full">
                 <TouchableOpacity onPress={playSound}>
                   {isPlaying ? (
                     <Pause width={30} height={30} />
