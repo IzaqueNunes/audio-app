@@ -3,7 +3,9 @@
         <img src="./src/assets/Tela-inicial.png" width="300px" height="600px">
     </div>
     <div align="left">
+        <h1>Sobre</h1>
         <p>Projeto de um aplicativo simples de música 👩‍💻</p>
+        <h1>Ferramentas</h1>
         <p>Foram usadas as seguintes tecnologias:</p>
         <li>
             React Native
