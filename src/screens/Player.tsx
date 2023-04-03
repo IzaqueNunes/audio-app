@@ -9,8 +9,8 @@ import { Slider } from "@miblanchard/react-native-slider";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 import Close from "../assets/close.svg";
-import Play from "../assets/play.svg";
-import Pause from "../assets/pause.svg";
+import Play from "../assets/play-black.svg";
+import Pause from "../assets/pause-black.svg";
 import Forward from "../assets/forward.svg";
 import { formatTime } from "../util/formatTime";
 
@@ -90,6 +90,15 @@ export default function Player() {
     }
   };
 
+  const handleNewPosition = async (newPosition: number) => {
+    try {
+      await sound.setPositionAsync(newPosition); // define a posição atual do áudio para 10 segundos
+      await sound.playAsync();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const gettingStatusLive = async () => {};
 
   const handleRewind = async () => {
@@ -139,7 +148,7 @@ export default function Player() {
             minimumValue={0}
             maximumValue={duration}
             value={position}
-            onValueChange={(value) => this.setValue(value)}
+            onValueChange={(value) => setPosition(value)}
           />
           <View className="flex flex-row justify-between">
             <Text className="text-white">{formatTime(position)}</Text>
@@ -151,11 +160,14 @@ export default function Player() {
                 <Forward width={30} height={30} />
               </TouchableOpacity>
               <View className="p-6 rounded-full">
-                <TouchableOpacity onPress={playSound}>
+                <TouchableOpacity
+                  onPress={playSound}
+                  className="p-4 bg-white rounded-full flex"
+                >
                   {isPlaying ? (
-                    <Pause width={30} height={30} />
+                    <Pause width={30} height={30} className="flex" />
                   ) : (
-                    <Play width={30} height={30} />
+                    <Play width={30} height={30} className="flex" />
                   )}
                 </TouchableOpacity>
               </View>
