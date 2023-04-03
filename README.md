@@ -15,6 +15,7 @@
             Typescript      
         </li>
     </div>
+    <h1>Navegação</h1>
     <div>
         <img src="./src/assets/Navegação.gif">
     </div>
