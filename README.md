@@ -10,13 +10,13 @@ Projeto de um aplicativo simples de música 👩‍💻
 ### ⛏ Ferramentas
 ##
 
-👉 [React Native](https://reactnative.dev/)
+- [React Native](https://reactnative.dev/)
 
-👉 [React Wind](https://www.nativewind.dev/)
+- [React Wind](https://www.nativewind.dev/)
 
-👉 [Typescript](https://www.typescriptlang.org/)
+- [Typescript](https://www.typescriptlang.org/)
 
-👉 [Expo](https://docs.expo.dev/)
+- [Expo](https://docs.expo.dev/)
  
 ### 🛳 Navegação
 ##
