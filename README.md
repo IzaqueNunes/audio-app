@@ -17,11 +17,10 @@
             Typescript      
         </li>
     </div>
-    
+    <div align="left">
+        <h1>Navegação</h1>
+    </div>
     <div>
-        <div align="left">
-           <h1>Navegação</h1>
-        </div>
         <img src="./src/assets/Navegação.gif">
     </div>
 </div>
