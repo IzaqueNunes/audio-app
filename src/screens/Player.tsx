@@ -114,6 +114,7 @@ export default function Player() {
   };
 
   useEffect(() => {
+    playSound();
     return sound
       ? () => {
           console.log("Unloading sound");
